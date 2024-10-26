@@ -1,0 +1,86 @@
+﻿@model CandidateVM
+@{
+    ViewData["Title"] = "Create";
+}
+<form asp-action="Create" enctype="multipart/form-data" method="post">
+    <div class="row">
+        <div class="col-6">
+           <h2 class="display-5">Add New Candidate</h2>
+           <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           <div class="row mb-2">
+                <label asp-for="CandidateName" class="col-form-label col-3"></label>
+               <div class="col-7">
+                   <input asp-for="CandidateName" class="form-control form-control-sm"/>
+               </div>
+               <div class="col-2">
+                   <span asp-validation-for="CandidateName" class="text-danger"></span>
+               </div>
+           </div>
+            <div class="row mb-2">
+                <label asp-for="DateOfBirth" class="col-form-label col-3"></label>
+                <div class="col-7">
+                    <input asp-for="DateOfBirth" type="date" class="form-control form-control-sm" />
+                </div>
+                <div class="col-2">
+                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label asp-for="Phone" class="col-form-label col-3"></label>
+                <div class="col-7">
+                    <input asp-for="Phone" class="form-control form-control-sm" />
+                </div>
+                <div class="col-2">
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label asp-for="ImagePath" class="col-form-label col-3"></label>
+                <div class="col-7">
+                    <input asp-for="ImagePath" type="file" class="form-control form-control-sm" />
+                </div>
+                <div class="col-2">
+                    <span asp-validation-for="ImagePath" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label asp-for="Fresher" class="col-form-label col-3"></label>
+                <div class="col-7">
+                    <input asp-for="Fresher" class="form-check-input" />
+                </div>
+                <div class="col-2">
+                    <span asp-validation-for="Fresher" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        @* <div class="col-6">
+            <h2 class="display-5">Skils</h2>
+            <div class="d-flex justify-content-end">
+                <a id="btnAdd" class="btn btn-outline-primary"><i class="fa fa-plus-circle"></i></a>
+            </div>
+            <div id="skillContainer">
+                <script>
+                    LoadData();
+                </script>
+            </div>
+        </div> *@
+        <div class="col-6">
+            <h2 class="display-5">Skills</h2>
+            <div class="d-flex justify-content-end">
+                <a id="btnPlus" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+            </div>
+            <div id="skillContainer">
+                <script>
+                    LoadData();
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end">
+        <input type="submit" class="btn btn-success" value="Save"/>
+    </div>
+</form>
+<div class="d-flex justify-content-start">
+    <a asp-action="Index" asp-controller="Candidates" class="btn btn-link">Back-To-List</a>
+</div>
+
